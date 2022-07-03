@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Icon, Button, Menu, Modal, message } from 'antd'
+import { Icon, Button, Modal, message } from 'antd'
 import { filter } from 'lodash-es'
 import { saveAs } from 'file-saver'
 import CryptoJS from 'crypto-js'
@@ -17,8 +17,8 @@ import {
 import { addPane, setActiveKey } from '@/redux/tabs'
 import { setMyFiles } from '@/redux/myfiles'
 import { setCodeHash, setTurtlePageUrl } from '@/redux/editor'
-import { getWebideCode } from '../../lib/api'
-import UploadFile from './upload-file'
+// import { getWebideCode } from '../../lib/api'
+// import UploadFile from './upload-file'
 import IdeEventHandler from '../../lib/ide-event-handler'
 import { getTurtlePageUrl } from '@/lib/utility'
 import { getCombindedCode } from '../../lib/lesson'
@@ -29,7 +29,7 @@ import './header.scss'
 
 const JSZip = require('jszip')()
 
-const { SubMenu } = Menu
+// const { SubMenu } = Menu
 
 class AppHeader extends Component {
   constructor(props) {
