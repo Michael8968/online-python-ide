@@ -1,0 +1,44 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+import random
+
+enemy = None
+
+
+def move(anjian, hero):
+
+    if anjian == "up":
+        hero.movedown()
+    if anjian == "down":
+        hero.moveup()
+    if anjian == "left":
+        hero.moveright()
+    if anjian == "right":
+        hero.moveleft()
+
+
+    # if anjian == "up":
+    #     hero.moveup()
+    # if anjian == "down":
+    #     hero.movedown()
+    # if anjian == "left":
+    #     hero.moveleft()
+    # if anjian == "right":
+    #     hero.moveright()
+
+
+    pass
+
+
+def set_enemy(abu, six, enemyPos):
+
+    jun_tuan = abu
+    wei_zhi = 3
+
+    # jun_tuan = random.choice((abu, six))
+    # wei_zhi = random.choice((1, 2, 3, 4, 5))
+
+    return jun_tuan,wei_zhi
+
+
+

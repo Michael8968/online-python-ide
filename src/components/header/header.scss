@@ -1,0 +1,163 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 1024px;
+  height: 100%;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(241, 52, 98, 1),
+      rgba(41, 102, 254, 1)
+    );
+  background-color: #fff;
+  box-shadow: 0 4px 18px 0 rgba(19, 39, 113, 1);
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    width: 140px;
+
+    img {
+      width: 110px;
+      height: 34px;
+      margin-left: 10px;
+    }
+  }
+
+  .app-logo {
+    width: 110px;
+    height: 34px;
+  }
+
+  .tool-bar {
+    display: flex;
+    width: 600px;
+
+    button {
+      color: rgba(254, 220, 220, 1);
+      font-size: 16px;
+    }
+
+    button:hover {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  .run-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 30px;
+    margin-top: -5px;
+    color: #fff;
+    font-size: 16px;
+    background:
+      linear-gradient(
+        0deg,
+        rgba(75, 23, 243, 1) 0%,
+        rgba(184, 70, 253, 1) 100%
+      );
+    border-radius: 15px;
+    box-shadow: 0 3px 0 0 rgba(47, 4, 170, 1), 0 6px 3px 0 rgba(117, 3, 76, 1);
+    cursor: pointer;
+
+    .run-button-icon {
+      color: #70f7f5;
+      font-size: 20px;
+    }
+  }
+
+  .run-button:hover {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(92, 47, 221, 1) 0%,
+        rgba(225, 123, 251, 1) 100%
+      );
+    box-shadow: 0 3px 0 0 rgba(47, 4, 170, 1), 0 6px 3px 0 rgba(117, 3, 76, 1);
+  }
+
+  .header-right {
+    align-items: center;
+    margin-right: 10px;
+    margin-left: auto;
+
+    span {
+      height: 14px;
+      color: rgba(255, 255, 255, 1);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  .header-ribbon {
+    margin: 0 5px;
+
+    .anticon {
+      margin: 0 3px;
+      padding: 5px;
+      font-size: 18px;
+      cursor: pointer;
+
+      &:hover {
+        color: #08c;
+      }
+    }
+  }
+
+  .ant-menu-horizontal {
+    display: inline-block;
+    width: 100px;
+    height: 32px;
+    color: #fedcdc;
+    font-size: 16px;
+    line-height: 32px;
+    background: #fff0;
+    border: none;
+  }
+
+  .ant-menu-horizontal .ant-menu-submenu {
+    top: 0;
+    vertical-align: middle;
+    border: none;
+  }
+
+  .submenu-title-wrapper {
+    color: #fedcdc;
+  }
+
+  .submenu-title-wrapper:hover {
+    color: #fff;
+  }
+
+  .ant-menu-submenu-title .anticon {
+    margin-right: 5px;
+    font-size: 16px;
+  }
+}
+
+.ant-menu-vertical {
+  width: 120px !important;
+  color: #fedcdc;
+  background-color: rgba(59, 58, 159, 1) !important;
+}
+
+.ant-menu-vertical.ant-menu-sub {
+  min-width: 120px !important;
+}
+
+.ant-menu-item:hover {
+  color: #fff;
+}
+
+.ant-menu-item-selected {
+  color: #fedcdc;
+  background-color: rgba(59, 58, 159, 1) !important;
+}
+
+.ant-menu-submenu-popup {
+  background-color: rgba(59, 58, 159, 1) !important;
+}

@@ -1,0 +1,25 @@
+.app-container {
+  width: 100vw;
+  min-width: 1280px;
+  height: 100vh;
+  min-height: 800px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+
+  &-track {
+    background: #f2f2f200;
+    border-radius: 5px;
+  }
+
+  &-thumb {
+    background: #1890ffc9;
+    border-radius: 5px;
+
+    &:hover {
+      background: #ee3469;
+    }
+  }
+}

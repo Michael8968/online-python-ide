@@ -1,0 +1,15 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-rational-order"],
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "rules": {
+    "no-descending-specificity": null,
+    "block-no-empty": null,
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      "declarations",
+      "rules",
+      "at-rules"
+    ]
+  }
+}

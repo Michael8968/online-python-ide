@@ -1,0 +1,1185 @@
+{
+  "lesson": [
+    {
+      "label": "试听课",
+      "children": [
+        {
+          "label": "跳舞的小女孩",
+          "children": [
+            {
+              "label": "练习(无拓展)",
+              "files": ["LA_aaa.py", "LA_practice.py", "LA_bbb.py"]
+            },
+            {
+              "label": "练习(有拓展)",
+              "files": ["LA_aaa2.py", "LA_practice.py", "LA_bbb.py"]
+            },
+            {
+              "label": "展示",
+              "files": ["LA_aaa.py", "LA_bbb.py"]
+            }
+          ]
+        },
+        {
+          "label": "吃鸡",
+          "children": [
+            {
+              "label": "练习",
+              "files": ["LB_eat_chicken.py", "LB_set.py", "LB_intrduce.py"]
+            }
+          ]
+        },
+        {
+          "label": "猜数字",
+          "children": [
+            {
+              "label": "guess_number",
+              "files": ["guess_number.py"]
+            },
+            {
+              "label": "print_input",
+              "files": ["print_input.py"]
+            },
+            {
+              "label": "todo",
+              "files": ["todo.py"]
+            }
+          ]
+        },
+        {
+          "label": "植物大战僵尸",
+          "children": [
+            {
+              "label": "练习",
+              "files": ["LC_main.py", "LC_jiangshi_set.py", "LC_intrduce.py"]
+            }
+          ]
+        },
+        {
+          "label": "蜗牛壳",
+          "children": [
+            {
+              "label": "future",
+              "files": ["future.py"]
+            },
+            {
+              "label": "slow",
+              "files": ["slow.py"]
+            },
+            {
+              "label": "snail",
+              "files": ["snail.py"]
+            }
+          ]
+        },
+        {
+          "label": "全民大战飞机",
+          "children": [
+            {
+              "label": "练习1",
+              "files": ["main1.py", "background.py", "boss_bullet.py", "boss.py", "bossmain.py", "bullet.py", "enemy.py", "myplane.py", "prop.py", "setup.py", "supply.py"]
+            },
+            {
+              "label": "关卡1",
+              "files": ["star_1.py", "main_1.py", "enemyPlane.py", "heroPlane.py", "ui.py"]
+            },
+            {
+              "label": "关卡2",
+              "files": ["star_2.py", "main_1.py", "enemyPlane.py", "heroPlane.py", "ui.py"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Python一阶课(Turtle)",
+      "children": [
+        {
+          "label": "第一课",
+          "children": [
+            {
+              "label": "迷宫",
+              "files": ["T1_migong.py"]
+            },
+            {
+              "label": "泡泡大作战",
+              "files": ["T1_paopaodazuozhan.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T1_zuoyecankao.py"]
+            },
+            {
+              "label": "作业(给学生)",
+              "files": ["T1_zuoyegeixuesheng.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二课",
+          "children": [
+            {
+              "label": "初始代码",
+              "files": ["T2_cushidaima.py"]
+            },
+            {
+              "label": "气球",
+              "files": ["T2_qiqiu.py"]
+            },
+            {
+              "label": "随机数",
+              "files": ["T2_suijishu.py"]
+            }
+          ]
+        },
+        {
+          "label": "第三课",
+          "children": [
+            {
+              "label": "风车",
+              "files": ["T3_fengche.py"]
+            },
+            {
+              "label": "作业",
+              "files": ["T3_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第四课",
+          "children": [
+            {
+              "label": "魔法戒指",
+              "files": ["T4_mofajiezhi.py"]
+            }
+          ]
+        },
+        {
+          "label": "第五课",
+          "children": [
+            {
+              "label": "几何世界",
+              "files": ["T5_jiheshijie.py"]
+            },
+            {
+              "label": "学生练习代码",
+              "files": ["T5_xueshenglianxi.py"]
+            }
+          ]
+        },
+        {
+          "label": "第六课",
+          "children": [
+            {
+              "label": "蜗牛壳",
+              "files": ["T6_woniuke.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T6_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第七课",
+          "children": [
+            {
+              "label": "多彩音乐棒",
+              "files": ["T7_duocaiyinyuebang.py"]
+            },
+            {
+              "label": "练习代码",
+              "files": ["T7_lianxidaima.py"]
+            },
+            {
+              "label": "天蓝音乐棒",
+              "files": ["T7_tianlanyinyuebang.py"]
+            }
+          ]
+        },
+        {
+          "label": "第八课",
+          "children": [
+            {
+              "label": "等比数列",
+              "files": ["T8_dengbishulie.py"]
+            },
+            {
+              "label": "多彩音乐棒",
+              "files": ["T8_duocaiyinyuebang.py"]
+            },
+            {
+              "label": "上节课代码",
+              "files": ["T8_shangjiekedaima.py"]
+            },
+            {
+              "label": "天蓝小棒",
+              "files": ["T8_tianlanxiaobang.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T8_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第九课",
+          "children": [
+            {
+              "label": "太阳花",
+              "files": ["T9_taiyanghua.py"]
+            },
+            {
+              "label": "雪花",
+              "files": ["T9_xuehua.py"]
+            },
+            {
+              "label": "雪花的升级",
+              "files": ["T9_xueshengdeshengji.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T9_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十课",
+          "children": [
+            {
+              "label": "屋顶",
+              "files": ["T10_wuding.py"]
+            },
+            {
+              "label": "夜空抽象画",
+              "files": ["T10_yekongchouxianghua.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十一课",
+          "children": [
+            {
+              "label": "金币",
+              "files": ["T11_jinbi.py"]
+            },
+            {
+              "label": "作业参考代码",
+              "files": ["T11_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十二课",
+          "children": [
+            {
+              "label": "彩色龙卷风",
+              "files": ["T12_caiselongjuanfeng.py"]
+            },
+            {
+              "label": "黑色龙卷风",
+              "files": ["T12_heiselongjuanfeng.py"]
+            },
+            {
+              "label": "炫彩龙卷风",
+              "files": ["T12_xuancailongjuanfeng.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T12_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十三课",
+          "children": [
+            {
+              "label": "回旋镖项目",
+              "files": ["T13_huixuanbiao.py"]
+            },
+            {
+              "label": "四组音乐棒",
+              "files": ["T13_sizuyinyuebang.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T13_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十四课",
+          "children": [
+            {
+              "label": "彩色回旋镖",
+              "files": ["T14_caisehuixuanbiao.py"]
+            },
+            {
+              "label": "作业(奇偶数判断)",
+              "files": ["T14_jioushupanduan.py"]
+            },
+            {
+              "label": "作业(身高问题)",
+              "files": ["T14_shengaowenti.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十五课",
+          "children": [
+            {
+              "label": "正方形",
+              "files": ["T15_zhengfangxing.py"]
+            },
+            {
+              "label": "作业",
+              "files": ["T15_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十六课",
+          "children": [
+            {
+              "label": "简单时钟",
+              "files": ["T16_zhong1.py"]
+            },
+            {
+              "label": "进化版时钟",
+              "files": ["T16_zhong2.py"]
+            },
+            {
+              "label": "五彩时钟",
+              "files": ["T16_zhong3.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十七课",
+          "children": [
+            {
+              "label": "静止的云",
+              "files": ["T17_jingzhideyun.py"]
+            },
+            {
+              "label": "小鸡啄米",
+              "files": ["T17_xiaojizhuomi.py"]
+            },
+            {
+              "label": "运动的云",
+              "files": ["T17_yundongdeyun.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十八课",
+          "children": [
+            {
+              "label": "封装练习不动部分",
+              "files": ["T18_fengzhuang.py"]
+            },
+            {
+              "label": "小鸡啄米",
+              "files": ["T18_xiaojizhuomi.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T18_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十九课",
+          "children": [
+            {
+              "label": "红黑对比",
+              "files": ["T19_hongheiduibi.py"]
+            },
+            {
+              "label": "画一个扇形代码",
+              "files": ["T19_shanxingdaima.py"]
+            },
+            {
+              "label": "旋转扇形",
+              "files": ["T19_xuanzhuanshanxing.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十课",
+          "children": [
+            {
+              "label": "五等分圆",
+              "files": ["T20_wudengfenyuan.py"]
+            },
+            {
+              "label": "作业1",
+              "files": ["T20_zuoye1.py"]
+            },
+            {
+              "label": "作业2",
+              "files": ["T20_zuoye2.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十一课",
+          "children": [
+            {
+              "label": "变脸",
+              "files": ["T21_bianlian.py"]
+            },
+            {
+              "label": "简单版变脸",
+              "files": ["T21_jiandanbianlian.py"]
+            },
+            {
+              "label": "鼠标跟随",
+              "files": ["T21_shubiaogensui.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T21_zuoye.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十二课",
+          "children": [
+            {
+              "label": "变脸",
+              "files": ["T22_bianlian.py"]
+            },
+            {
+              "label": "露出微笑",
+              "files": ["T22_louchuweixiao.py"]
+            },
+            {
+              "label": "作业(参考代码)",
+              "files": ["T22_zuoye1.py"]
+            },
+            {
+              "label": "作业(发给学生)",
+              "files": ["T22_zuoye2.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十三课/第二十四课",
+          "children": [
+            {
+              "label": "教学版",
+              "files": ["T23_jiaoxueban.py"]
+            },
+            {
+              "label": "菱形",
+              "files": ["T23_lengxing.py"]
+            },
+            {
+              "label": "牛顿摆",
+              "files": ["T23_niudunbai.py"]
+            },
+            {
+              "label": "万花筒",
+              "files": ["T23_wanhuatong.py"]
+            },
+            {
+              "label": "炫酷正方形",
+              "files": ["T23_xuankuzhengfangxing.py"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Python二阶课(Pygame)",
+      "children": [
+        {
+          "label": "第一课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "简单的输入打印",
+                  "files": ["L1_input_print_ide.py"]
+                },
+                {
+                  "label": "迷宫",
+                  "files": ["L1_maze_ide.py"]
+                },
+                {
+                  "label": "问答游戏1",
+                  "files": [
+                    "L1_qa_be_ide.py"
+                  ]
+                },
+                {
+                  "label": "问答游戏2",
+                  "files": [
+                    "L1_qa1_af_ide.py"
+                  ]
+                },
+                {
+                  "label": "问答游戏3",
+                  "files": [
+                    "L1_qa2_af_ide.py"
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "课后作业",
+              "files": ["L1_qa_homework_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "彩色气球练习",
+                  "files": ["L2_balloons_pra_ide.py"]
+                },
+                {
+                  "label": "彩色气球展示",
+                  "files": ["L2_balloons_show_ide.py"]
+                },
+                {
+                  "label": "冒险手册",
+                  "files": ["L2_shouce_ide.py"]
+                },
+                {
+                  "label": "故事制造机_简单版",
+                  "files": ["L2_stories_simple_ide.py"]
+                },
+                {
+                  "label": "故事制造机_作业",
+                  "files": ["L2_stories_work_ide.py"]
+                },
+                {
+                  "label": "字符串练习",
+                  "files": ["L2_strings_pra_ide.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业",
+              "files": ["L2_homework_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第三课",
+          "children": [
+            {
+              "label": "比比谁更快_课堂项目(修改前)",
+              "files": ["L3_Typing_bf.py", "L3_Setting_bf.py"]
+            },
+            {
+              "label": "比比谁更快_课堂项目(修改后)",
+              "files": ["L3_Typing_af.py", "L3_Setting_af.py"]
+            },
+            {
+              "label": "小球",
+              "files": ["L3_bouncing_ball_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第四课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "国王的选择(修改前)",
+                  "files": ["L4_Story_be_ide.py"]
+                },
+                {
+                  "label": "国王的选择(修改后)",
+                  "files": ["L4_Story_af_ide.py"]
+                },
+                {
+                  "label": "海龟作图",
+                  "files": ["L4_turtle_ide.py"]
+                },
+                {
+                  "label": "神奇的四位数",
+                  "files": ["L4_amazing_num_ide.py"]
+                },
+                {
+                  "label": "课后作业_参考代码",
+                  "files": ["L4_homework_answer_ide.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业(给学生)",
+              "files": ["L4_homework_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第五课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "一朵小花",
+                  "files": ["L5_flower_ide.py"]
+                },
+                {
+                  "label": "一朵小花_练习",
+                  "files": ["L5_flower_prac_ide.py"]
+                },
+                {
+                  "label": "一朵小花_升级(参考代码)",
+                  "files": ["L5_flower_up_ans_ide.py"]
+                },
+                {
+                  "label": "一朵小花_升级",
+                  "files": ["L5_flower_up_ide.py"]
+                },
+                {
+                  "label": "课后作业",
+                  "files": ["L5_homework_sample_ide.py"]
+                },
+                {
+                  "label": "喂投怪兽_修改前",
+                  "files": ["L5_feed_be_ide.py"]
+                },
+                {
+                  "label": "喂投怪兽_修改后",
+                  "files": ["L5_feed_af_ide.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业(给学生)",
+              "files": ["L5_homework_ss_ide.py"]
+            },
+            {
+              "label": "课后作业(给老师)",
+              "files": ["L5_homework_tr_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第六课",
+          "children": [
+            {
+              "label": "单词测试",
+              "files": ["L6_danci_ide.py"]
+            },
+            {
+              "label": "神秘机器代码",
+              "files": ["L6_machine_ide.py"]
+            },
+            {
+              "label": "字母画图",
+              "files": ["L6_letter_draw_ide.py"]
+            },
+            {
+              "label": "拓展部分展示项目",
+              "files": ["L6_extraProject_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第七课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "(无误)钢琴",
+                  "files": ["L7_piano_correct_ide.py"]
+                },
+                {
+                  "label": "(有误)钢琴",
+                  "files": ["L7_piano_error_ide.py"]
+                },
+                {
+                  "label": "钢琴（练习）",
+                  "files": ["L7_piano_prac_ide.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业",
+              "files": ["L7_homework_ans_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第八课",
+          "children": [
+            {
+              "label": "勇者斗恶龙-上课",
+              "files": ["L8_main.py", "L8_myClass.py"]
+            },
+            {
+              "label": "勇者斗恶龙-练习",
+              "files": ["L8_exercise.py", "L8_myClass.py"]
+            },
+            {
+              "label": "有bug的系统",
+              "files": ["L8_bug_sys_ide.py"]
+            },
+            {
+              "label": "升级版未知的山洞",
+              "files": ["L8_unknown_cave_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第九课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "彩色环",
+                  "files": ["L9_colorloop_ide.py"]
+                },
+                {
+                  "label": "单词猜猜猜(练习)",
+                  "files": ["L9_guess_pra_ide.py"]
+                },
+                {
+                  "label": "单词猜猜猜(完整版)",
+                  "files": ["L9_guess_correct_ide.py"]
+                },
+                {
+                  "label": "课后作业参考",
+                  "files": ["L9_homework_answer_ide.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业",
+              "files": ["L9_homework_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "加载一张图",
+                  "files": ["L10_frist_picture_ide.py"]
+                },
+                {
+                  "label": "骑士小傲",
+                  "files": ["L10_qishi_ide.py"]
+                },
+                {
+                  "label": "骑士小傲（动手尝试）",
+                  "files": ["L10_qishi_try_ide.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业",
+              "files": ["L10_homework_answer_ide.py"]
+            },
+            {
+              "label": "课后作业(给学生)",
+              "files": ["L10_homework_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十一课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "弹幕展示",
+                  "files": ["L11_danmu_ide.py"]
+                },
+                {
+                  "label": "python(背景动)",
+                  "files": ["L11_danmu_dong_ide.py"]
+                },
+                {
+                  "label": "弹幕（背景不动)",
+                  "files": ["L11_danmu_budong_ide.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业",
+              "files": ["L11_homework_answer_ide.py"]
+            },
+            {
+              "label": "课后作业(给学生)",
+              "files": ["L11_homework_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十二课",
+          "children": [
+            {
+              "label": "彩色迷宫",
+              "files": ["L12_colormaze_ide.py"]
+            },
+            {
+              "label": "万花筒1",
+              "files": ["L12_wanhuatong1_ide.py"]
+            },
+            {
+              "label": "万花筒2",
+              "files": ["L12_wanhuatong2_ide.py"]
+            },
+            {
+              "label": "课后作业参考",
+              "files": ["L12_homework_ide.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十三课",
+          "children": [
+            {
+              "label": "水果机",
+              "files": ["L13_tigerMachine.py"]
+            },
+            {
+              "label": "大富翁（修改前)",
+              "files": ["L13_dafuweng_be.py"]
+            },
+            {
+              "label": "大富翁(最终版)",
+              "files": ["L13_dafuweng_af.py"]
+            },
+            {
+              "label": "L13_简单版游戏机",
+              "files": ["L13_simplegame.py"]
+            },
+            {
+              "label": "L13_课后作业",
+              "files": ["L13_homework.py"]
+            },
+            {
+              "label": "L13_小练习",
+              "files": ["L13_exercise.py"]
+            },
+            {
+              "label": "拓展环节参考代码",
+              "files": ["L13_tuozhan.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十四课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "短跑项目-初始",
+                  "files": ["L14_run.py"]
+                },
+                {
+                  "label": "短跑项目-修改",
+                  "files": ["L14_runOK.py"]
+                },
+                {
+                  "label": "回答问题",
+                  "files": ["L14_test.py"]
+                },
+                {
+                  "label": "字符串",
+                  "files": ["L14_string.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业1",
+              "files": ["L14_racegamehomework.py"]
+            },
+            {
+              "label": "课后作业2",
+              "files": ["L14homework1.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十五课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "小傲买菜",
+                  "files": ["L15_xiaoaomaicai.py"]
+                },
+                {
+                  "label": "untitled-1",
+                  "files": ["L15_untitled.py"]
+                },
+                {
+                  "label": "特工小梦",
+                  "files": ["L15_xiaomeng.py"]
+                },
+                {
+                  "label": "买菜练习",
+                  "files": ["L15_maicailianxi.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业(参考)",
+              "files": ["L15_homework_cankao.py"]
+            },
+            {
+              "label": "课后作业(学生)",
+              "files": ["L15_homework_student.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十六课",
+          "children": [
+            {
+              "label": "课堂代码",
+              "children": [
+                {
+                  "label": "宠物医院",
+                  "files": ["L16_petshospital.py"]
+                },
+                {
+                  "label": "超市(练习)",
+                  "files": ["L16_shoplianxi.py"]
+                },
+                {
+                  "label": "超市(展示)",
+                  "files": ["L16_shopzhanshi.py"]
+                }
+              ]
+            },
+            {
+              "label": "课后作业",
+              "files": ["L16_homework.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十七课",
+          "children": [
+            {
+              "label": "挑战1参考代码",
+              "files": ["L17_tiaozhan1.py"]
+            },
+            {
+              "label": "挑战2参考代码",
+              "files": ["L17_tiaozhan2.py"]
+            },
+            {
+              "label": "拓展部分",
+              "files": ["L17_tuozhan.py"]
+            },
+            {
+              "label": "展示项目",
+              "files": ["L17_zhanshi.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十八课",
+          "children": [
+            {
+              "label": "demo4",
+              "files": ["L18_demo.py", "L18_demo4def.py"]
+            },
+            {
+              "label": "半成品",
+              "files": ["L18_banchengpin.py", "L18_demo4def.py"]
+            },
+            {
+              "label": "文字版",
+              "files": ["L18_wenzi.py"]
+            }
+          ]
+        },
+        {
+          "label": "第十九课",
+          "children": [
+            {
+              "label": "function_benefit",
+              "files": ["L19_function_benefit.py"]
+            },
+            {
+              "label": "课堂练习",
+              "files": ["L19_ketanglianxi.py"]
+            },
+            {
+              "label": "picture",
+              "files": ["L19_picture.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十课",
+          "children": [
+            {
+              "label": "练习1",
+              "files": ["L20_ex1.py"]
+            },
+            {
+              "label": "练习2",
+              "files": ["L20_ex2.py"]
+            },
+            {
+              "label": "练习3",
+              "files": ["L20_ex3.py"]
+            },
+            {
+              "label": "家庭作业",
+              "files": ["L20_homework.py"]
+            },
+            {
+              "label": "贪吃蛇大作战(双人)",
+              "files": ["L20_snake.py"]
+            },
+            {
+              "label": "有返回值的函数",
+              "files": ["L20_return.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十一课",
+          "children": [
+            {
+              "label": "练习1",
+              "files": ["L21_ex1.py"]
+            },
+            {
+              "label": "练习2",
+              "files": ["L21_ex2.py"]
+            },
+            {
+              "label": "练习3",
+              "files": ["L21_ex3.py"]
+            },
+            {
+              "label": "练习4",
+              "files": ["L21_ex4.py"]
+            },
+            {
+              "label": "练习5",
+              "files": ["L21_ex5.py"]
+            },
+            {
+              "label": "贪吃蛇",
+              "files": ["L21_snake.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十二课",
+          "children": [
+            {
+              "label": "aaaaa",
+              "files": ["L22_aaaaa.py", "L22_aaaaadef.py"]
+            },
+            {
+              "label": "aaaaa2",
+              "files": ["L22_aaaaa2.py", "L22_aaaaadef.py"]
+            },
+            {
+              "label": "练习1",
+              "files": ["L22_ex1.py"]
+            },
+            {
+              "label": "练习2",
+              "files": ["L22_ex2.py"]
+            },
+            {
+              "label": "练习3",
+              "files": ["L22_ex3.py"]
+            },
+            {
+              "label": "练习4",
+              "files": ["L22_ex4.py"]
+            },
+            {
+              "label": "一个都不能死1",
+              "files": ["L22_noOneToDie1.py"]
+            },
+            {
+              "label": "一个都不能死2",
+              "files": ["L22_noOneToDie2.py"]
+            },
+            {
+              "label": "一个都不能死3",
+              "files": ["L22_noOneToDie3.py"]
+            },
+            {
+              "label": "一个都不能死(参考1)",
+              "files": ["L22_noOneToDieDef.py"]
+            },
+            {
+              "label": "一个都不能死(参考2)",
+              "files": ["L22_noOneToDieDef2.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十三课",
+          "children": [
+            {
+              "label": "五子棋",
+              "files": ["L23_wuziqi.py"]
+            },
+            {
+              "label": "五子棋(练习)",
+              "files": ["L23_wuziqi_ex.py"]
+            }
+          ]
+        },
+        {
+          "label": "第二十四课",
+          "children": [
+            {
+              "label": "扫雷1",
+              "files": ["L24_saolei1.py"]
+            },
+            {
+              "label": "扫雷2",
+              "files": ["L24_saolei2.py"]
+            },
+            {
+              "label": "扫雷3",
+              "files": ["L24_saolei3.py", "L24_saolei3def.py"]
+            },
+            {
+              "label": "扫雷练习",
+              "files": ["L24_saolei_ex.py"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Python三阶课(高级)",
+      "children": [
+        {
+          "label": "试听课"
+        }
+      ]
+    }
+  ]
+}

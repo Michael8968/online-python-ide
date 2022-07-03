@@ -1,0 +1,110 @@
+.my-files-container {
+  width: 180px;
+  min-width: 180px;
+  height: 100%;
+  color: rgba(120, 165, 235, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(4, 93, 168, 0.5),
+      rgba(13, 11, 91, 0.5)
+    );
+
+  .title {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  .divide {
+    width: 180px;
+    height: 1px;
+    // margin-left: 20px;
+    background: rgba(34, 82, 155, 1);
+  }
+
+  .close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin-right: 6px;
+    color: #ccc;
+    cursor: pointer;
+  }
+
+  .close-button:hover {
+    color: #fff;
+  }
+}
+
+.ant-list-item {
+  height: 30px;
+  padding: 0 6px 0 6px;
+  color: rgba(120, 165, 235, 1);
+  border: none;
+
+  .ant-list-item-meta-description {
+    width: 168px;
+    color: rgba(135, 163, 220, 1);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    cursor: pointer;
+  }
+
+  .ant-list-item-meta-description:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .remove-button {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #fff0;
+    cursor: pointer;
+  }
+}
+
+.ant-list-item:hover {
+  color: #fff;
+
+  .remove-button {
+    color: #fff;
+  }
+}
+
+.ant-list-split .ant-list-item {
+  border-bottom: 1px dashed rgba(24, 144, 255, 0.2);
+}
+
+.ant-list-split .ant-list-item:hover {
+  border-bottom: 1px dashed rgba(24, 144, 255, 0.8);
+}
+
+.ant-empty-normal {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.file-name-info {
+  margin-top: 10px;
+}
+
+.file-delete-info {
+  margin-top: 20px;
+}
+
+.file-name-text {
+  margin-left: 5px;
+  color: #ff4d4f;
+  font-weight: bold;
+}

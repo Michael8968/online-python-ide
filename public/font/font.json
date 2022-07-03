@@ -1,0 +1,24 @@
+{
+  "fonts": [
+    {
+      "familyName": "Amadeus",
+      "url": "/font/font.ttf"
+    },
+    {
+      "familyName": "Interstate Mono",
+      "url": "/font/Interstate Mono - Blk.ttf"
+    },
+    {
+      "familyName": "LEGothic",
+      "url": "/font/Legothick.ttf"
+    },
+    {
+      "familyName": "Felt",
+      "url": "/font/Marker Felt.ttf"
+    },
+    {
+      "familyName": "SimHei",
+      "url": "/font/simhei.ttf"
+    }
+  ]
+}
