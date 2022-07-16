@@ -63,4 +63,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-### [peerjs](https://github.com/peers/peerjs) & [peerjs-server](https://github.com/peers/peerjs-server)
+### peer-to-peer
+
+npm install peer -g
+peerjs --port 8968 --key peerjs --path /iturtle
+[peerjs](https://github.com/peers/peerjs) & [peerjs-server](https://github.com/peers/peerjs-server)
