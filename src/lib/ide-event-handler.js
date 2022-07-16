@@ -1,5 +1,5 @@
 import { store } from '../redux/store'
-import RtmClient from './rtm-client'
+import RtmClient from './peer'
 // import { setLastLocalData } from '../redux/editor'
 // import { debounce } from 'lodash-es'
 

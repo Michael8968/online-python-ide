@@ -12,7 +12,7 @@ import Output from '@/components/ide/output'
 import PopupScene from '@/components/ide/popup-scene'
 import IdeMessageHandler from '../lib/ide-message-handler'
 import IdeEventHandler from '../lib/ide-event-handler'
-import RtmClient from '../lib/rtm-client'
+import RtmClient from '../lib/peer'
 import { getCombindedCode } from '../lib/lesson'
 import { setTurtlePageUrl } from '@/redux/editor'
 import { setScreenshot } from '@/redux/courseware'
@@ -35,6 +35,7 @@ import {
 } from '../redux/console'
 import { setCodeHash, setEditorWidth } from '../redux/editor'
 import { getTurtlePageUrl } from '@/lib/utility'
+import { TEACHER_PEER_ID, STUDENT_PEER_ID } from '@/lib/configure'
 
 import './editor.scss'
 
@@ -74,10 +75,14 @@ class EditorView extends Component {
   }
 
   componentDidMount() {
-    const { userId, useRTM } = this.props
+    const { appRole, useRTM } = this.props
     // console.log('userId, useRTM', userId, useRTM)
     if (useRTM) {
-      this.loginRTM(userId)
+      if (appRole === 'teacher') {
+        this.loginRTM(TEACHER_PEER_ID, STUDENT_PEER_ID)
+      } else {
+        this.loginRTM(STUDENT_PEER_ID, TEACHER_PEER_ID)
+      }
     } else {
       //监听message事件
       window.addEventListener('message', this.handleMessage, false)
@@ -245,15 +250,19 @@ class EditorView extends Component {
 
   joinRoom() {
     const { userId, courseId } = this.props
-    // const THIS = this
-    RtmClient.joinChannel(courseId)
+    RtmClient.connect()
       .then(() => {
-        RtmClient.channels[courseId].joined = true
-        RtmClient.on('ChannelMessage', ({ channelName, args }) => {
-          const [message, memberId] = args
-          if (memberId === userId) return
-          if (channelName !== courseId) return
-          const data = JSON.parse(message.text)
+        RtmClient.on('incoming-data', data => {
+          if (userId === data.userId) return
+          // action: "changeSelection"
+          // end: {row: 0, column: 8}
+          // key: "0"
+          // start: {row: 0, column: 8}
+          // sync: "pythonAce"
+          // timestamp: 1657959969697
+          // to: ""
+          // userId: "17311111111"
+          console.info('incoming data ', data)
           if (data.sync === 'pythonAce') {
             const handler = IdeMessageHandler.aceMessageHandlers[data.key]
             handler && handler.handleMessage(data)
@@ -265,17 +274,37 @@ class EditorView extends Component {
       .catch(err => {
         console.error(err)
       })
+    // const { userId, courseId } = this.props
+    // // const THIS = this
+    // RtmClient.joinChannel(courseId)
+    //   .then(() => {
+    //     RtmClient.channels[courseId].joined = true
+    //     RtmClient.on('ChannelMessage', ({ channelName, args }) => {
+    //       const [message, memberId] = args
+    //       if (memberId === userId) return
+    //       if (channelName !== courseId) return
+    //       const data = JSON.parse(message.text)
+    //       if (data.sync === 'pythonAce') {
+    //         const handler = IdeMessageHandler.aceMessageHandlers[data.key]
+    //         handler && handler.handleMessage(data)
+    //       } else {
+    //         IdeMessageHandler.handleMessage(data)
+    //       }
+    //     })
+    //   })
+    //   .catch(err => {
+    //     console.error(err)
+    //   })
   }
 
-  loginRTM(account) {
+  loginRTM(localId, remoteId) {
     const THIS = this
     if (RtmClient._logined) {
       return
     }
     try {
-      RtmClient.init('2071eeb90454440b9abfb992135a3403')
-
-      RtmClient.login(account, null)
+      RtmClient.init(localId, remoteId)
+      RtmClient.login()
         .then(() => {
           RtmClient._logined = true
           THIS.joinRoom()
@@ -598,6 +627,7 @@ function mapStateToProps(state) {
     consoleHeight: state.console.consoleHeight,
     useRTM: state.app.useRTM,
     userId: state.app.userId,
+    appRole: state.app.appRole,
     courseId: state.app.courseId,
     isShowPopupScene: state.console.isShowPopupScene,
     keyboardHeight: state.editor.keyboardHeight,

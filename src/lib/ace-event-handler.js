@@ -1,7 +1,7 @@
 import { isMatch } from 'lodash-es'
 import { store } from '../redux/store'
 import IdeEventHandler from './ide-event-handler'
-import RtmClient from './rtm-client'
+import RtmClient from './peer'
 
 export default class AceEventHandler {
   constructor(aceKey) {
@@ -32,6 +32,7 @@ export default class AceEventHandler {
     })
     if (state.app.useRTM) {
       RtmClient.sendChannelMessage(message, state.app.courseId)
+      console.warn('sendCommand : ', data, to, force)
     } else {
       this.source.postMessage(message, this.origin)
     }

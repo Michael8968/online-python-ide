@@ -15,7 +15,7 @@ const defaultState = {
   sync: false,
   writable: true,
   courseId: '',
-  useRTM: false,
+  useRTM: true,
   multiFiles: [],
   teacherId: '',
   isMobile: false,
