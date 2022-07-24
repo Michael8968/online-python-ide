@@ -17,7 +17,7 @@ import './content.scss'
 
 const params = queryString.parse(window.location.search)
 // 老师端 ： http://localhost:3000/?courseId=4e5925e81060b8a025c734838d673f63&sync=true&writable=true&teacher=17311111111&teacherId=17311111111&name=li&useRTM=true
-// 学生端 ： http://localhost:3000/?courseId=4e5925e81060b8a025c734838d673f63&sync=false&writable=false&student=18616378968&name=wang&teacherId=17311111111&useRTM=true
+// 学生端 ： http://localhost:3000/?courseId=4e5925e81060b8a025c734838d673f63&sync=true&writable=true&student=18616378968&name=wang&teacherId=17311111111&useRTM=true
 
 const teacher = params.teacher
 const student = params.student

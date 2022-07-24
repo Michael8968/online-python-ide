@@ -17,12 +17,14 @@ export default class AceMessageHandler {
     if (data.userId === this.userId) return
     if (data.sync !== 'pythonAce') return
 
-    if (data.action === 'getLatestContent') {
-      this.getLatestContent(data.to)
-    }
+    console.warn('handleMessage : ', data)
 
-    if (state.app.writable) return
-    if (state.app.sync) return
+    // if (data.action === 'getLatestContent') {
+    //   this.getLatestContent(data.to)
+    // }
+
+    // if (state.app.writable) return
+    // if (state.app.sync) return
     // console.log('AceMessageHandler ', data)
     if (data.action === 'changeCursor') {
       // moveCursorTo(row, column) {
@@ -72,8 +74,8 @@ export default class AceMessageHandler {
   // remove(Range range)  Object
   // new Range(Number startRow, Number startColumn, Number endRow, Number endColumn)
   remove(startRow, startColumn, endRow, endColumn, hash) {
-    const range = new Range(startRow, startColumn, endRow, endColumn)
-    this.editor.remove(range, hash)
+    // const range = new Range(startRow, startColumn, endRow, endColumn)
+    // this.editor.remove(range, hash)
   }
 
   // moveCursorTo(Number row, Number column)

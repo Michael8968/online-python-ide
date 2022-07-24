@@ -23,7 +23,7 @@ export default class AceEventHandler {
     // ace editor changed event {... , userId: '', key: '', snyc: 'pythonAce'}
     this.source = IdeEventHandler.source || window.parent
     this.origin = IdeEventHandler.origin || '*'
-    const message = Object.assign(data, {
+    const message = Object.assign({}, data, {
       timestamp: timestamp,
       userId: this.userId,
       key: this.aceKey,
@@ -45,7 +45,7 @@ export default class AceEventHandler {
     // start: {row: 1, column: 7}
     // end: {row: 1, column: 8}
     // lines: ["e"]
-    const data = Object.assign(event, { hash: hash })
+    const data = Object.assign({}, event, { hash: hash })
     this.sendCommand(data, to)
   }
 
@@ -59,7 +59,7 @@ export default class AceEventHandler {
       event.start.column !== event.end.column
     ) {
       // send insert data
-      const data = Object.assign(event, { hash: hash })
+      const data = Object.assign({}, event, { hash: hash })
       this.sendCommand(data, to)
     }
   }
@@ -167,15 +167,15 @@ export default class AceEventHandler {
   }
 
   requestLatestContent(to = '') {
-    const state = store.getState()
-    if (state.app.sync) return
-    if (state.app.writable) return
-    if (state.app.isMaster) return
-    const data = {
-      action: 'getLatestContent',
-      userId: this.userId,
-    }
-    this.sendCommand(data, to, true)
+    // const state = store.getState()
+    // if (state.app.sync) return
+    // if (state.app.writable) return
+    // if (state.app.isMaster) return
+    // const data = {
+    //   action: 'getLatestContent',
+    //   userId: this.userId,
+    // }
+    // this.sendCommand(data, to, true)
   }
 
   sendContent(userId, text, hash, to = '') {

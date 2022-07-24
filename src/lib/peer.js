@@ -9,6 +9,7 @@ class RTMClient extends EventEmitter {
     this.peer = null
     this.localId = ''
     this.remoteId = ''
+    this.joined = false
   }
 
   init(localId, remoteId) {
@@ -35,7 +36,7 @@ class RTMClient extends EventEmitter {
       this.conn = conn
       conn.on('open', () => {
         this.opened = true
-        this._logined = true
+        this.joined = true
         console.info('connection opened', Date.now())
       })
       conn.on('data', data => {
@@ -43,6 +44,7 @@ class RTMClient extends EventEmitter {
       })
       conn.on('close', () => {
         console.info('connection closed')
+        this.joined = false
         delete this.conn
       })
       conn.on('error', e => {
@@ -64,6 +66,7 @@ class RTMClient extends EventEmitter {
       conn.on('open', () => {
         console.info('connection opened', Date.now())
         this.conn = conn
+        this.joined = true
         resolve()
       })
       conn.on('data', data => {
@@ -71,6 +74,7 @@ class RTMClient extends EventEmitter {
       })
       conn.on('close', () => {
         console.info('connection closed')
+        this.joined = false
         delete this.conn
       })
       conn.on('error', e => {

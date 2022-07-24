@@ -1,27 +1,16 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import AceEditor from 'react-ace'
-// import md5 from 'blueimp-md5'
+import CodeMirror from '@uiw/react-codemirror'
+import { python } from '@codemirror/lang-python'
 import CryptoJS from 'crypto-js'
-import 'ace-builds/src-noconflict/theme-xcode'
-import 'ace-builds/src-noconflict/theme-vibrant_ink'
-import 'ace-builds/src-noconflict/mode-python'
-import 'ace-builds/src-noconflict/ext-language_tools'
-import 'ace-builds/src-noconflict/snippets/python'
-import 'ace-builds/src-noconflict/ext-searchbox'
-import 'ace-builds/src-noconflict/ext-emmet'
+
 import { filter } from 'lodash-es'
 import { updateContent } from '@/redux/tabs'
 import { finishSearch, showSearch } from '@/redux/search'
 import AceEventHandler from '../../lib/ace-event-handler'
 import AceMessageHandler from '../../lib/ace-message-handler'
 import IdeMessageHandler from '../../lib/ide-message-handler'
-import RtmClient from '../../lib/peer'
-import * as Y from 'yjs'
-import { createMutex } from 'lib0/mutex.js'
-import { WebrtcProvider } from 'y-webrtc'
-import { AceBinding } from '../../lib/y-ace'
 
 import './ide.scss'
 const { Range } = require('ace-builds/src-noconflict/ace')
@@ -43,86 +32,29 @@ class Editor extends Component {
       editorHeight: 'calc(100% - 30px)',
     }
 
-    this.ydoc = new Y.Doc()
-    this.type = this.ydoc.getText('ace')
-    const mux = createMutex()
-    this.mux = mux
-    this.doc = this.type.doc
-    this.provider = new WebrtcProvider('yjs-ace', this.ydoc)
-
     this.onChange = this.onChange.bind(this)
     this.onScroll = this.onScroll.bind(this)
     this.onSelectionChange = this.onSelectionChange.bind(this)
     this.onCursorChange = this.onCursorChange.bind(this)
     this.getEditorHeight = this.getEditorHeight.bind(this)
-    this._typeObserver = this._typeObserver.bind(this)
   }
 
   componentDidMount() {
-    const { showSearch } = this.props
-    this.editor = this.editorComponent.editor
-    // this.editor.commands.bindKey('Return', editor => editor.insert('\n'))
-    this.editSession = this.editor.getSession()
-    this.editor.commands.addCommand({
-      name: 'search',
-      bindKey: { win: 'Ctrl-f', mac: 'Command-f' },
-      exec: function(editor) {
-        // editor.removeLines()
-        showSearch()
-      },
-      // scrollIntoView: 'cursor',
-      // multiSelectAction: 'forEachLine',
-    })
+    // const { showSearch } = this.props
+    // this.editor = this.editorComponent.editor
+    // this.editSession = this.editor.getSession()
+    // this.editor.commands.addCommand({
+    //   name: 'search',
+    //   bindKey: { win: 'Ctrl-f', mac: 'Command-f' },
+    //   exec: function(editor) {
+    //     showSearch()
+    //   },
+    // })
     this.getEditorHeight()
-    // this.editSession.on('change', this.onChange)
-    // this.type.observe(this._typeObserver)
-    // const binding = new Y.AceBinding(ace, type)
-    const binding = new AceBinding(
-      this.type,
-      this.editor,
-      this.provider.awareness
-    )
-    let user = {
-      name: Math.random()
-        .toString(36)
-        .substring(7),
-      color: '#' + Math.floor(Math.random() * 16777215).toString(16),
-    }
-
-    // Define user name and user name
-    this.provider.awareness.setLocalStateField('user', user)
-    const self = this
-    this.provider.awareness.on('change', function() {
-      let userCount = self.provider.awareness.getStates().size
-      console.warn('userCount : ', userCount)
-    })
   }
 
   componentWillUnmount() {
     IdeMessageHandler.removeAceMessageHandler(this.key)
-  }
-  _typeObserver(event) {
-    const aceDocument = this.editSession.getDocument()
-    this.mux(() => {
-      const delta = event.delta
-      let currentPos = 0
-      for (const op of delta) {
-        if (op.retain) {
-          currentPos += op.retain
-        } else if (op.insert) {
-          const start = aceDocument.indexToPosition(currentPos, 0)
-          aceDocument.insert(start, op.insert)
-          currentPos += op.insert.length
-        } else if (op.delete) {
-          const start = aceDocument.indexToPosition(currentPos, 0)
-          const end = aceDocument.indexToPosition(currentPos + op.delete, 0)
-          const range = new Range(start.row, start.column, end.row, end.column)
-          aceDocument.remove(range)
-        }
-      }
-      console.warn('_typeObserver : ', event)
-      // this._cursorObserver()
-    })
   }
 
   getEditorHeight() {
@@ -137,22 +69,21 @@ class Editor extends Component {
   }
 
   insert(row, column, text, hash) {
-    console.warn('insert : ', row, column, text, hash)
     // const { writable } = this.props
     // if (writable) return
-    // if (
-    //   this.editSession &&
-    //   this.editSession.getLength() > row &&
-    //   this.editSession.getDocumentLastRowColumn(row, 0) >= column
-    // ) {
-    //   const aceDocument = this.editSession.getDocument()
-    //   this.lastRemoteHash = hash
-    //   aceDocument.insert({ row, column }, text)
-    // } else {
-    //   console.error('insert error : ', row, column, text, hash)
-    //   // maybe error
-    //   this.aceEvent.requestLatestContent()
-    // }
+    if (
+      this.editSession &&
+      this.editSession.getLength() > row &&
+      this.editSession.getDocumentLastRowColumn(row, 0) >= column
+    ) {
+      const aceDocument = this.editSession.getDocument()
+      this.lastRemoteHash = hash
+      aceDocument.insert({ row, column }, text)
+    } else {
+      console.error('insert error : ', row, column, text, hash)
+      // maybe error
+      this.aceEvent.requestLatestContent()
+    }
   }
 
   remove(range, hash) {
@@ -263,58 +194,41 @@ class Editor extends Component {
       preventScroll: false,
     })
   }
-
   onChange(newValue, event) {
-    // if (RtmClient.joined) return
-    // const aceDocument = this.editSession.getDocument()
-    // this.mux(() => {
-    //   if (event.action === 'insert') {
-    //     const start = aceDocument.positionToIndex(event.start, 0)
-    //     this.type.insert(start, event.lines.join('\n'))
-    //   } else if (event.action === 'remove') {
-    //     const start = aceDocument.positionToIndex(event.start, 0)
-    //     const length = event.lines.join('\n').length
-    //     this.type.delete(start, length)
-    //   }
-    //   this.type.applyDelta(event)
-    //   console.warn('onChange : ', newValue, event)
-    // this._cursorObserver()
-    // this.aceEvent.onChange('', this.type.toString(), this.lastLocalHash)
-    // })
-    // const { updateContent, activeKey, writable, sync } = this.props
-    // this.lastLocalHash = CryptoJS.MD5(newValue).toString()
-    // updateContent(activeKey, newValue, this.lastLocalHash)
-    // this.aceEvent.onChange(newValue, event, this.lastLocalHash)
-    // if (!sync) {
-    //   if (!writable) {
-    //     if (this.lastLocalHash !== this.lastRemoteHash) {
-    //       console.warn(
-    //         'maybe miss command : ',
-    //         this.lastLocalHash,
-    //         this.lastRemoteHash
-    //       )
-    //       this.aceEvent.requestLatestContent()
-    //     }
-    //   }
-    //   return
-    // }
-    // if (writable) {
-    //   // student send content to teacher
-    //   this.aceEvent.onChange(newValue, event, this.lastLocalHash)
-    // } else {
-    //   if (this.lastLocalHash !== this.lastRemoteHash) {
-    //     console.warn(
-    //       'maybe miss command : ',
-    //       this.lastLocalHash,
-    //       this.lastRemoteHash
-    //     )
-    //     this.aceEvent.requestLatestContent()
-    //   }
-    // }
+    const { updateContent, activeKey, writable, sync } = this.props
+    console.warn('onChange : ', newValue, event)
+    this.lastLocalHash = CryptoJS.MD5(newValue).toString()
+    updateContent(activeKey, newValue, this.lastLocalHash)
+    if (!sync) {
+      if (!writable) {
+        if (this.lastLocalHash !== this.lastRemoteHash) {
+          console.warn(
+            'maybe miss command : ',
+            this.lastLocalHash,
+            this.lastRemoteHash
+          )
+          this.aceEvent.requestLatestContent()
+        }
+      }
+      return
+    }
+
+    if (writable) {
+      // student send content to teacher
+      this.aceEvent.onChange(newValue, event, this.lastLocalHash)
+    } else {
+      if (this.lastLocalHash !== this.lastRemoteHash) {
+        console.warn(
+          'maybe miss command : ',
+          this.lastLocalHash,
+          this.lastRemoteHash
+        )
+        this.aceEvent.requestLatestContent()
+      }
+    }
   }
 
   onScroll(event) {
-    if (RtmClient.joined) return
     const { writable, sync } = this.props
     if (!sync) return
     if (!writable) return
@@ -323,7 +237,6 @@ class Editor extends Component {
   }
 
   onSelectionChange(newValue, event) {
-    if (RtmClient.joined) return
     const { writable, sync } = this.props
     if (!sync) return
     if (!writable) return
@@ -331,7 +244,6 @@ class Editor extends Component {
   }
 
   onCursorChange(newValue, event) {
-    if (RtmClient.joined) return
     const { writable, sync } = this.props
     if (!sync) return
     if (!writable) return
@@ -406,41 +318,18 @@ class Editor extends Component {
 
     const editor =
       pane && pane[0] ? (
-        <AceEditor
+        <CodeMirror
           className="ace-editor"
-          mode="python"
-          selectionStyle="text"
-          theme="vibrant_ink"
-          width={this.props.editorWidth.toString()}
-          height={this.state.editorHeight}
-          minLines={1}
-          name={'mainEditor_' + this.key}
-          tabSize={4}
-          fontSize={18}
-          editorProps={{ $blockScrolling: true }}
-          setOptions={{
-            enableBasicAutocompletion: true,
-            enableLiveAutocompletion: true,
-            enableSnippets: false,
-            autoScrollEditorIntoView: true,
-            newLineMode: 'auto',
-            enableEmmet: false,
-            showPrintMargin: false,
-            animatedScroll: true,
-            behavioursEnabled: true,
-            wrapBehavioursEnabled: false,
-            useSoftTabs: true,
-            navigateWithinSoftTabs: false,
-          }}
-          wrapEnabled={false}
-          readOnly={!writable}
-          // value={pane[0].content + ''}
-          // onChange={this.onChange}
-          // onScroll={this.onScroll}
-          // onSelectionChange={this.onSelectionChange}
-          // onCursorChange={this.onCursorChange}
-          ref={ref => {
-            this.editorComponent = ref
+          value={pane[0].content + ''}
+          width={this.props.editorWidth.toString() + 'px'}
+          height={this.state.editorHeight + 'px'}
+          extensions={[python()]}
+          onChange={this.onChange}
+          options={{
+            theme: 'monokai',
+            mode: 'python',
+            extraKeys: { Ctrl: 'autocomplete' }, //ctrl可以弹出提示
+            styleActiveLine: true,
           }}
         />
       ) : null
