@@ -410,7 +410,7 @@ class Editor extends Component {
           className="ace-editor"
           mode="python"
           selectionStyle="text"
-          theme="vibrant_ink"
+          theme="xcode"
           width={this.props.editorWidth.toString()}
           height={this.state.editorHeight}
           minLines={1}

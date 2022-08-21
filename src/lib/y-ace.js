@@ -61,13 +61,14 @@ class AceCursors {
             this.self.ace.container.appendChild(el)
           } else {
             el.style.height = height + 'px'
-            el.style.width = width + 'px'
+            el.style.width = 'auto'
             el.style.top = top + 'px'
             el.style.left = left + 'px'
             el.style.borderLeft = '2px solid ' + pos.color
             el.style.zIndex = 100
             el.style.color = '#000'
-            el.style.cursor = 'help'
+            el.style.cursor = 'pointer'
+            el.style.opacity = '0.5'
           }
         }
       }
