@@ -250,7 +250,7 @@ class EditorView extends Component {
   }
 
   joinRoom() {
-    const { userId, courseId } = this.props
+    const { userId /*, courseId*/ } = this.props
     RtmClient.connect()
       .then(() => {
         RtmClient.on('incoming-data', data => {

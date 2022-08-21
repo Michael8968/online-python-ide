@@ -47,7 +47,7 @@ class AceCursors {
           let el = document.getElementById(
             this.self.aceID + '_cursor_' + pos.id
           )
-          if (el == undefined) {
+          if (!el) {
             el = document.createElement('div')
             el.id = this.self.aceID + '_cursor_' + pos.id
             el.className = 'cursor'

@@ -77,7 +77,7 @@ class Editor extends Component {
     // this.editSession.on('change', this.onChange)
     // this.type.observe(this._typeObserver)
     // const binding = new Y.AceBinding(ace, type)
-    const binding = new AceBinding(
+    /*const binding = */ new AceBinding(
       this.type,
       this.editor,
       this.provider.awareness
