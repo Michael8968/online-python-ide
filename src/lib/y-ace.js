@@ -62,7 +62,7 @@ class AceCursors {
           } else {
             el.style.height = height + 'px'
             el.style.width = 'auto'
-            el.style.top = top + 'px'
+            el.style.top = top + 20 + 'px'
             el.style.left = left + 'px'
             el.style.borderLeft = '2px solid ' + pos.color
             el.style.zIndex = 100
