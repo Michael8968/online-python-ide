@@ -43,6 +43,12 @@ class Content extends Component {
 
   parseParam() {
     const { setAppUser, setMobileMode } = this.props
+    let user = {
+      name: Math.random()
+        .toString(36)
+        .substring(7),
+      color: '#' + Math.floor(Math.random() * 16777215).toString(16),
+    }
     // read localStorage
     const userId =
       localStorage.getItem('cuser_id') ||
@@ -60,17 +66,18 @@ class Content extends Component {
     // test
     if (window.location.host.includes('localhost')) {
       userId
-        ? setAppUser(role, userId, name) //: setAppUser(role, '', '')
-        : setAppUser('teacher', 'test', 'dev')
+        ? setAppUser(role, user.name, user.name) //: setAppUser(role, '', '')
+        : setAppUser('teacher', user.name, user.name)
     } else {
-      userId ? setAppUser(role, userId, name) : setAppUser(role, '', '')
+      userId ? setAppUser(role, user.name, user.name) : setAppUser(role, '', '')
     }
+
     // 如果有传参，以参数为主
     if (teacher && teacher.length > 0) {
       setAppUser(
         'teacher',
-        teacher,
-        userName + '老师',
+        user.name,
+        user.name + '老师',
         sync,
         writable,
         courseId,
@@ -81,8 +88,8 @@ class Content extends Component {
       // console.log(' teacherId ', teacherId)
       setAppUser(
         'student',
-        student,
-        userName + '同学',
+        user.name,
+        user.name + '同学',
         sync,
         writable,
         courseId,

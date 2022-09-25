@@ -14,7 +14,7 @@ import {
   showPopupScene,
   hidePopupScene,
 } from '@/redux/console'
-import { addPane, setActiveKey } from '@/redux/tabs'
+import { addPane, setActiveKey, updateContent } from '@/redux/tabs'
 import { setMyFiles } from '@/redux/myfiles'
 import { setCodeHash, setTurtlePageUrl } from '@/redux/editor'
 // import { getWebideCode } from '../../lib/api'
@@ -117,7 +117,7 @@ class AppHeader extends Component {
     this.setState({ showUploadFile: true })
   }
   onFileSelected(files) {
-    const { addPane, setActiveKey, panes } = this.props
+    const { addPane, setActiveKey, panes, updateContent } = this.props
     // console.log('onFileSelected', files)
     if (!files || files.length <= 0) return
     var reader = new FileReader()
@@ -142,8 +142,12 @@ class AppHeader extends Component {
           // console.log('filename 2', filename)
           pane = filter(panes, { title: filename })
         }
-        addPane(filename, reader.result, hash)
-        setActiveKey(hash)
+        // reset content
+        updateContent('1', '', '')
+        setTimeout(() => {
+          addPane(filename, reader.result, hash)
+          setActiveKey(hash)
+        }, 100)
       },
       false
     )
@@ -280,17 +284,17 @@ class AppHeader extends Component {
           </div>
         </div>
         <div className="tool-bar">
-          <Button
+          {/* <Button
             icon="file-add"
             type="link"
             ghost
             onClick={this.onOpenCourseWare}
           >
             课件代码
-          </Button>
-          <Button icon="file-add" type="link" ghost onClick={this.onCreate}>
+          </Button> */}
+          {/* <Button icon="file-add" type="link" ghost onClick={this.onCreate}>
             新建文件
-          </Button>
+          </Button> */}
           <input
             ref={this.inputOpenFileRef}
             type="file"
@@ -402,6 +406,7 @@ function mapDispatchToProps(dispatch) {
       hidePopupScene,
       showCourseware,
       hideCourseware,
+      updateContent,
     },
     dispatch
   )

@@ -29,7 +29,7 @@ class Editor extends Component {
     this.lastRemoteHash = ''
 
     this.state = {
-      editorHeight: 'calc(100% - 30px)',
+      editorHeight: 'calc(100% - 0px)',
     }
 
     this.onChange = this.onChange.bind(this)
@@ -59,7 +59,7 @@ class Editor extends Component {
 
   getEditorHeight() {
     // keyboardHeight
-    const offset = this.props.keyboardHeight + 30
+    const offset = this.props.keyboardHeight + 0
     let height = `calc(100% - ${offset}px)`
     // const container = document.getElementById('ace-editor-container')
     // if (container) {

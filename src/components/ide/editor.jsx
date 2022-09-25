@@ -40,7 +40,7 @@ class Editor extends Component {
     this.lastRemoteHash = ''
 
     this.state = {
-      editorHeight: 'calc(100% - 30px)',
+      editorHeight: 'calc(100% - 0px)',
     }
 
     this.ydoc = new Y.Doc()
@@ -59,43 +59,43 @@ class Editor extends Component {
   }
 
   componentDidMount() {
-    const { showSearch } = this.props
-    this.editor = this.editorComponent.editor
-    // this.editor.commands.bindKey('Return', editor => editor.insert('\n'))
-    this.editSession = this.editor.getSession()
-    this.editor.commands.addCommand({
-      name: 'search',
-      bindKey: { win: 'Ctrl-f', mac: 'Command-f' },
-      exec: function(editor) {
-        // editor.removeLines()
-        showSearch()
-      },
-      // scrollIntoView: 'cursor',
-      // multiSelectAction: 'forEachLine',
-    })
-    this.getEditorHeight()
-    // this.editSession.on('change', this.onChange)
-    // this.type.observe(this._typeObserver)
-    // const binding = new Y.AceBinding(ace, type)
-    /*const binding = */ new AceBinding(
-      this.type,
-      this.editor,
-      this.provider.awareness
-    )
-    let user = {
-      name: Math.random()
-        .toString(36)
-        .substring(7),
-      color: '#' + Math.floor(Math.random() * 16777215).toString(16),
-    }
+    const { showSearch, userName } = this.props
+    if (this.editorComponent) {
+      this.editor = this.editorComponent.editor
+      // this.editor.commands.bindKey('Return', editor => editor.insert('\n'))
+      this.editSession = this.editor.getSession()
+      this.editor.commands.addCommand({
+        name: 'search',
+        bindKey: { win: 'Ctrl-f', mac: 'Command-f' },
+        exec: function(editor) {
+          // editor.removeLines()
+          showSearch()
+        },
+        // scrollIntoView: 'cursor',
+        // multiSelectAction: 'forEachLine',
+      })
+      this.getEditorHeight()
+      // this.editSession.on('change', this.onChange)
+      // this.type.observe(this._typeObserver)
+      // const binding = new Y.AceBinding(ace, type)
+      /*const binding = */ new AceBinding(
+        this.type,
+        this.editor,
+        this.provider.awareness
+      )
+      let user = {
+        name: userName,
+        color: '#' + Math.floor(Math.random() * 16777215).toString(16),
+      }
 
-    // Define user name and user name
-    this.provider.awareness.setLocalStateField('user', user)
-    const self = this
-    this.provider.awareness.on('change', function() {
-      let userCount = self.provider.awareness.getStates().size
-      console.warn('userCount : ', userCount)
-    })
+      // Define user name and user name
+      this.provider.awareness.setLocalStateField('user', user)
+      const self = this
+      this.provider.awareness.on('change', function() {
+        let userCount = self.provider.awareness.getStates().size
+        console.warn('userCount : ', userCount)
+      })
+    }
   }
 
   componentWillUnmount() {
@@ -127,7 +127,7 @@ class Editor extends Component {
 
   getEditorHeight() {
     // keyboardHeight
-    const offset = this.props.keyboardHeight + 30
+    const offset = this.props.keyboardHeight + 0
     let height = `calc(100% - ${offset}px)`
     // const container = document.getElementById('ace-editor-container')
     // if (container) {
@@ -265,6 +265,8 @@ class Editor extends Component {
   }
 
   onChange(newValue, event) {
+    const { updateContent } = this.props
+    updateContent(this.key, newValue, '')
     // if (RtmClient.joined) return
     // const aceDocument = this.editSession.getDocument()
     // this.mux(() => {
@@ -339,70 +341,71 @@ class Editor extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {
-      activeKey,
-      curSearchText,
-      searchAction,
-      finishSearch,
-      errors,
-    } = this.props
-    // Typical usage (don't forget to compare props):
-    if (activeKey !== prevProps.activeKey && this.key === activeKey) {
-      // current tab page
-      this.getEditorHeight()
-      this.editor.resize()
-    }
-    if (curSearchText !== prevProps.curSearchText) {
-      if (curSearchText && curSearchText.length > 0) {
-        this.editor.findAll(curSearchText)
-      } else {
-        this.find(true, false, '')
-      }
-    }
-    if (searchAction !== prevProps.searchAction) {
-      if (searchAction === 'next') {
-        this.find(true, false, curSearchText)
-      } else if (searchAction === 'previous') {
-        this.find(true, true, curSearchText)
-      }
-      finishSearch()
-    }
-    if (this.key === activeKey) {
-      const curErrors = filter(errors, { key: activeKey })
-      if (
-        (!prevProps.errors || prevProps.errors.length <= 0) &&
-        curErrors &&
-        curErrors.length > 0
-      ) {
-        // console.log('error', curErrors[0])
-        curErrors[0].error.map((item, index) => {
-          // console.log('error', index, item)
-          // new Range(Number startRow, Number startColumn, Number endRow, Number endColumn)
-          const marker = this.editSession.addMarker(
-            new Range(item.line - 1, 0, item.line - 1, item.column || 1),
-            'errorMarker',
-            'line',
-            true
-          )
-          index === 0 && this.editor.scrollToLine(item.line)
-          index === 0 && this.editor.gotoLine(item.line, item.column, true)
-          this.markers.push(marker)
-          return item
-        })
-      } else if (this.markers.length > 0) {
-        this.markers.map(item => {
-          this.editSession.removeMarker(item)
-          return item
-        })
-        this.marker = []
-      }
-    }
+    // const {
+    //   activeKey,
+    //   curSearchText,
+    //   searchAction,
+    //   finishSearch,
+    //   errors,
+    // } = this.props
+    // // console.warn('componentDidUpdate : ', panes)
+    // // Typical usage (don't forget to compare props):
+    // if (activeKey !== prevProps.activeKey && this.key === activeKey) {
+    //   // current tab page
+    //   this.getEditorHeight()
+    //   this.editor.resize()
+    // }
+    // if (curSearchText !== prevProps.curSearchText) {
+    //   if (curSearchText && curSearchText.length > 0) {
+    //     this.editor.findAll(curSearchText)
+    //   } else {
+    //     this.find(true, false, '')
+    //   }
+    // }
+    // if (searchAction !== prevProps.searchAction) {
+    //   if (searchAction === 'next') {
+    //     this.find(true, false, curSearchText)
+    //   } else if (searchAction === 'previous') {
+    //     this.find(true, true, curSearchText)
+    //   }
+    //   finishSearch()
+    // }
+    // if (this.key === activeKey) {
+    //   const curErrors = filter(errors, { key: activeKey })
+    //   if (
+    //     (!prevProps.errors || prevProps.errors.length <= 0) &&
+    //     curErrors &&
+    //     curErrors.length > 0
+    //   ) {
+    //     // console.log('error', curErrors[0])
+    //     curErrors[0].error.map((item, index) => {
+    //       // console.log('error', index, item)
+    //       // new Range(Number startRow, Number startColumn, Number endRow, Number endColumn)
+    //       const marker = this.editSession.addMarker(
+    //         new Range(item.line - 1, 0, item.line - 1, item.column || 1),
+    //         'errorMarker',
+    //         'line',
+    //         true
+    //       )
+    //       index === 0 && this.editor.scrollToLine(item.line)
+    //       index === 0 && this.editor.gotoLine(item.line, item.column, true)
+    //       this.markers.push(marker)
+    //       return item
+    //     })
+    //   } else if (this.markers.length > 0) {
+    //     this.markers.map(item => {
+    //       this.editSession.removeMarker(item)
+    //       return item
+    //     })
+    //     this.marker = []
+    //   }
+    // }
   }
 
   render() {
     const { activeKey, panes, writable } = this.props
     const pane = filter(panes, { key: activeKey })
-    // console.log('pane', pane)
+    console.warn('activeKey : ', activeKey, panes, pane)
 
     const editor =
       pane && pane[0] ? (
@@ -434,8 +437,8 @@ class Editor extends Component {
           }}
           wrapEnabled={false}
           readOnly={!writable}
-          // value={pane[0].content + ''}
-          // onChange={this.onChange}
+          value={pane[0].content + ''}
+          onChange={this.onChange}
           // onScroll={this.onScroll}
           // onSelectionChange={this.onSelectionChange}
           // onCursorChange={this.onCursorChange}
@@ -459,6 +462,7 @@ function mapStateToProps(state) {
     userId: state.app.userId,
     sync: state.app.sync,
     writable: state.app.writable,
+    userName: state.app.userName,
   }
 }
 

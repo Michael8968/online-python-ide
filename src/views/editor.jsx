@@ -553,6 +553,16 @@ class EditorView extends Component {
   render() {
     const { activeKey, panes, keyboardHeight } = this.props
     // const paddingStyle = { paddingBottom: `${keyboardHeight}px` }
+
+    const editor = panes ? (
+      <Editor
+        editorWidth={this.state.editorWidth}
+        key={panes[0].key}
+        id={panes[0].key}
+        keyboardHeight={keyboardHeight}
+      />
+    ) : null
+    // console.warn('panes : ', editor, panes[0].key)
     return (
       <div className="editor-container">
         <SplitPane
@@ -567,7 +577,7 @@ class EditorView extends Component {
           onDragStarted={this.onDragStarted}
         >
           <div className="tabs-container" id="ace-editor-container">
-            <Tabs
+            {/* <Tabs
               onChange={this.onChange}
               activeKey={activeKey}
               type="editable-card"
@@ -580,16 +590,10 @@ class EditorView extends Component {
                     tab={pane.title}
                     key={pane.key}
                     closable={pane.closable}
-                  >
-                    <Editor
-                      editorWidth={this.state.editorWidth}
-                      key={pane.key}
-                      id={pane.key}
-                      keyboardHeight={keyboardHeight}
-                    />
-                  </TabPane>
+                  ></TabPane>
                 ))}
-            </Tabs>
+            </Tabs> */}
+            {editor}
           </div>
           <SplitPane
             split="horizontal"

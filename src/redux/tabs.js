@@ -7,12 +7,12 @@ export const UPDATE_PANE_NAME = 'tabs/UPDATE_PANE_NAME'
 export const RESET_PANES = 'tabs/RESET_PANES'
 
 const defaultState = {
-  activeKey: '0',
+  activeKey: '1',
   panes: [
     {
       title: 'main.py',
       content: '',
-      key: '0',
+      key: '1',
       closable: false,
       hash: '',
     },
@@ -24,7 +24,8 @@ export default (state = defaultState, action = {}) => {
   const { payload } = action
   switch (action.type) {
     case UPDATE_CONTENT: {
-      const panes = state.panes.filter(pane => pane.key === payload.key)
+      // const panes = state.panes.filter(pane => pane.key === payload.key)
+      const panes = state.panes
       panes[0].content = payload.content
       panes[0].hash = payload.hash
       return {
@@ -34,28 +35,35 @@ export default (state = defaultState, action = {}) => {
       }
     }
     case SET_ACTIVE_KEY:
+      // state.panes[0].key = payload
       return {
         ...state,
-        activeKey: payload,
+        // activeKey: payload,
       }
     case ADD_PANE: {
-      const filter = state.panes.filter(pane => pane.key === payload.key)
-      const found = filter && filter.length > 0
-      if (found) {
-        filter[0].title = payload.title
-        filter[0].content = payload.content
-      }
+      // const filter = state.panes.filter(pane => pane.key === payload.key)
+      // const found = filter && filter.length > 0
+      // if (found) {
+      //   filter[0].title = payload.title
+      //   filter[0].content = payload.content
+      // }
 
-      return !found
-        ? {
-            ...state,
-            panes: [...state.panes, payload],
-          }
-        : state
+      // return !found
+      //   ? {
+      //       ...state,
+      //       panes: [...state.panes, payload],
+      //     }
+      //   : state
+      const panes = state.panes
+      panes[0].content = payload.content
+      return {
+        ...state,
+        panes: [...state.panes],
+      }
     }
     case REMOVE_PANE: {
-      const filtered = state.panes.filter(pane => pane.key !== payload)
-      return { ...state, panes: filtered }
+      // const filtered = state.panes.filter(pane => pane.key !== payload)
+      return { ...state }
     }
     case UPDATE_PANE_NAME: {
       const filter = state.panes.filter(pane => pane.key === payload.key)
@@ -70,7 +78,7 @@ export default (state = defaultState, action = {}) => {
     case RESET_PANES:
       return {
         ...state,
-        panes: payload,
+        // panes: payload,
       }
     default:
       return state
