@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Tabs } from 'antd'
+// import { Tabs } from 'antd'
 import { filter } from 'lodash-es'
 import SplitPane from 'react-split-pane'
 import html2canvas from 'html2canvas'
@@ -40,7 +40,7 @@ import { TEACHER_PEER_ID, STUDENT_PEER_ID } from '@/lib/configure'
 
 import './editor.scss'
 
-const { TabPane } = Tabs
+// const { TabPane } = Tabs
 
 class EditorView extends Component {
   constructor(props) {
@@ -551,7 +551,7 @@ class EditorView extends Component {
     // IdeEventHandler.onActiveKey(key)
   }
   render() {
-    const { activeKey, panes, keyboardHeight } = this.props
+    const { /*activeKey,*/ panes, keyboardHeight } = this.props
     // const paddingStyle = { paddingBottom: `${keyboardHeight}px` }
 
     const editor = panes ? (

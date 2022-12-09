@@ -21,9 +21,10 @@ import RtmClient from '../../lib/peer'
 import * as Y from 'yjs'
 import { createMutex } from 'lib0/mutex.js'
 import { WebrtcProvider } from 'y-webrtc'
-import { AceBinding } from '../../lib/y-ace'
+import { AceBinding } from '../../lib/y-ace' // import the script
 
 import './ide.scss'
+const randomColor = require('randomcolor')
 const { Range } = require('ace-builds/src-noconflict/ace')
 
 class Editor extends Component {
@@ -78,14 +79,11 @@ class Editor extends Component {
       // this.editSession.on('change', this.onChange)
       // this.type.observe(this._typeObserver)
       // const binding = new Y.AceBinding(ace, type)
-      /*const binding = */ new AceBinding(
-        this.type,
-        this.editor,
-        this.provider.awareness
-      )
+      new AceBinding(this.type, this.editor, this.provider.awareness)
+      const color = randomColor()
       let user = {
         name: userName,
-        color: '#' + Math.floor(Math.random() * 16777215).toString(16),
+        color: color, // '#' + Math.floor(Math.random() * 16777215).toString(16),
       }
 
       // Define user name and user name

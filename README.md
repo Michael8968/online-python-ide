@@ -68,3 +68,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 npm install peer -g
 peerjs --port 8968 --key peerjs --path /iturtle
 [peerjs](https://github.com/peers/peerjs) & [peerjs-server](https://github.com/peers/peerjs-server)
+
+http://localhost:3000/?student=张同学
+http://localhost:3000/?teacher=王老师
+
+node 10

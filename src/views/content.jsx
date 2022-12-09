@@ -22,9 +22,9 @@ const params = queryString.parse(window.location.search)
 const teacher = params.teacher
 const student = params.student
 const teacherId = params.teacherId || ''
-const userName = params.name || ''
+// const userName = params.name || ''
 const sync = params.sync === 'true'
-const writable = params.writable === 'true'
+const writable = params.writable === 'true' || true
 const courseId = params.courseId
 const useRTM = params.useRTM === 'true'
 const isMobile = params.mobile === 'true'
@@ -55,12 +55,12 @@ class Content extends Component {
       localStorage.getItem('userId') ||
       localStorage.getItem('userKey')
     const role = localStorage.getItem('cuser_type') || 'free'
-    const name =
-      role === 'student'
-        ? localStorage.getItem('cuser_name') ||
-          localStorage.getItem('studentname') + '同学'
-        : localStorage.getItem('cuser_name') ||
-          localStorage.getItem('teachertname') + '老师'
+    // const name =
+    //   role === 'student'
+    //     ? localStorage.getItem('cuser_name') ||
+    //       localStorage.getItem('studentname') + '同学'
+    //     : localStorage.getItem('cuser_name') ||
+    //       localStorage.getItem('teachertname') + '老师'
     // console.log('userId, role, name', userId, role, name)
     // appRole, userId, userName
     // test
@@ -77,7 +77,7 @@ class Content extends Component {
       setAppUser(
         'teacher',
         user.name,
-        user.name + '老师',
+        teacher, // user.name + '老师',
         sync,
         writable,
         courseId,
@@ -89,7 +89,7 @@ class Content extends Component {
       setAppUser(
         'student',
         user.name,
-        user.name + '同学',
+        student, // user.name + '同学',
         sync,
         writable,
         courseId,
