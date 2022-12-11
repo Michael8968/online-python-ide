@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Button, Modal, message } from 'antd'
-import { PauseOutlined, CaretRightOutlined } from '@ant-design/icons';
+import { PauseOutlined, CaretRightOutlined, FolderOpenOutlined, FullscreenOutlined } from '@ant-design/icons';
 import { filter } from 'lodash-es'
 import { saveAs } from 'file-saver'
 import CryptoJS from 'crypto-js'
@@ -311,7 +311,7 @@ class AppHeader extends Component {
           )}
           {isMobile ? null : (
             <Button
-              icon="folder-open"
+              icon={<FolderOpenOutlined />}
               type="link"
               ghost
               onClick={this.onOpenFile}
@@ -339,7 +339,7 @@ class AppHeader extends Component {
           </Menu> */}
           {isMobile ? null : (
             <Button
-              icon="fullscreen"
+              icon={<FullscreenOutlined />}
               type="link"
               ghost
               onClick={this.onPopupScene}
