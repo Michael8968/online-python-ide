@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Icon, Button, Modal, message } from 'antd'
+import { Button, Modal, message } from 'antd'
+import { PauseOutlined, CaretRightOutlined } from '@ant-design/icons';
 import { filter } from 'lodash-es'
 import { saveAs } from 'file-saver'
 import CryptoJS from 'crypto-js'
@@ -13,19 +14,20 @@ import {
   clearConsole,
   showPopupScene,
   hidePopupScene,
-} from '@/redux/console'
-import { addPane, setActiveKey, updateContent } from '@/redux/tabs'
-import { setMyFiles } from '@/redux/myfiles'
-import { setCodeHash, setTurtlePageUrl } from '@/redux/editor'
+} from 'redux/console'
+import { addPane, setActiveKey, updateContent } from 'redux/tabs'
+import { setMyFiles } from 'redux/myfiles'
+import { setCodeHash, setTurtlePageUrl } from 'redux/editor'
 // import { getWebideCode } from '../../lib/api'
 // import UploadFile from './upload-file'
 import IdeEventHandler from '../../lib/ide-event-handler'
-import { getTurtlePageUrl } from '@/lib/utility'
+import { getTurtlePageUrl } from 'lib/utility'
 import { getCombindedCode } from '../../lib/lesson'
 import browserDetect from '../../lib/browser-detect'
-import { showCourseware, hideCourseware } from '@/redux/courseware'
+import { showCourseware, hideCourseware } from 'redux/courseware'
 
 import './header.scss'
+import { isMobile } from '../../lib/utility'
 
 const JSZip = require('jszip')()
 
@@ -295,24 +297,28 @@ class AppHeader extends Component {
           {/* <Button icon="file-add" type="link" ghost onClick={this.onCreate}>
             新建文件
           </Button> */}
-          <input
-            ref={this.inputOpenFileRef}
-            type="file"
-            style={{ display: 'none' }}
-            onChange={e => this.onFileSelected(e.target.files)}
-            onClick={e => {
-              e.target.value = null
-            }}
-            accept=".txt, .py"
-          />
-          <Button
-            icon="folder-open"
-            type="link"
-            ghost
-            onClick={this.onOpenFile}
-          >
-            打开文件
-          </Button>
+          {isMobile ? null : (
+            <input
+              ref={this.inputOpenFileRef}
+              type="file"
+              style={{ display: 'none' }}
+              onChange={e => this.onFileSelected(e.target.files)}
+              onClick={e => {
+                e.target.value = null
+              }}
+              accept=".txt, .py"
+            />
+          )}
+          {isMobile ? null : (
+            <Button
+              icon="folder-open"
+              type="link"
+              ghost
+              onClick={this.onOpenFile}
+            >
+              打开文件
+            </Button>
+          )}
           {/* {isLogon ? (
             <Button icon="save" type="link" ghost onClick={this.onUpload}>
               保存到云端
@@ -322,7 +328,7 @@ class AppHeader extends Component {
             <SubMenu
               title={
                 <span className="submenu-title-wrapper">
-                  <Icon type="download" />
+                  <DownloadOutlined />
                   下载
                 </span>
               }
@@ -331,23 +337,25 @@ class AppHeader extends Component {
               <Menu.Item key="download:2">下载所有文件</Menu.Item>
             </SubMenu>
           </Menu> */}
-          <Button
-            icon="fullscreen"
-            type="link"
-            ghost
-            onClick={this.onPopupScene}
-          >
-            弹出窗口
-          </Button>
+          {isMobile ? null : (
+            <Button
+              icon="fullscreen"
+              type="link"
+              ghost
+              onClick={this.onPopupScene}
+            >
+              弹出窗口
+            </Button>
+          )}
         </div>
         {isRunning ? (
           <div className="run-button" onClick={this.onSoptRun}>
-            <Icon type="pause" className="run-button-icon" />
+            <PauseOutlined className="run-button-icon" />
             停止
           </div>
         ) : (
           <div className="run-button" onClick={this.onRunCode}>
-            <Icon type="caret-right" className="run-button-icon" />
+            <CaretRightOutlined className="run-button-icon"/>
             运行
           </div>
         )}

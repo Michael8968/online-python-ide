@@ -6,17 +6,17 @@ import { filter } from 'lodash-es'
 import SplitPane from 'react-split-pane'
 import html2canvas from 'html2canvas'
 import CryptoJS from 'crypto-js'
-import Editor from '@/components/ide/editor'
-// import Editor from '@/components/ide/editor-codemirror'
-import Console from '@/components/ide/console'
-import Output from '@/components/ide/output'
-import PopupScene from '@/components/ide/popup-scene'
+import Editor from 'components/ide/editor'
+// import Editor from 'components/ide/editor-codemirror'
+import Console from 'components/ide/console'
+import Output from 'components/ide/output'
+import PopupScene from 'components/ide/popup-scene'
 import IdeMessageHandler from '../lib/ide-message-handler'
 import IdeEventHandler from '../lib/ide-event-handler'
 import RtmClient from '../lib/peer'
 import { getCombindedCode } from '../lib/lesson'
-import { setTurtlePageUrl } from '@/redux/editor'
-import { setScreenshot } from '@/redux/courseware'
+import { setTurtlePageUrl } from 'redux/editor'
+import { setScreenshot } from 'redux/courseware'
 
 import { uploadBlob2oss, getUploadVendor, uploadBlob2cos } from '../lib/api'
 
@@ -35,10 +35,15 @@ import {
   setCommand,
 } from '../redux/console'
 import { setCodeHash, setEditorWidth } from '../redux/editor'
-import { getTurtlePageUrl } from '@/lib/utility'
-import { TEACHER_PEER_ID, STUDENT_PEER_ID } from '@/lib/configure'
+import { getTurtlePageUrl } from 'lib/utility'
+import { TEACHER_PEER_ID, STUDENT_PEER_ID } from 'lib/configure'
 
 import './editor.scss'
+
+import { isMobile } from '../lib/utility'
+import { Tabs } from 'antd'
+
+const { TabPane } = Tabs
 
 // const { TabPane } = Tabs
 
@@ -565,54 +570,54 @@ class EditorView extends Component {
     // console.warn('panes : ', editor, panes[0].key)
     return (
       <div className="editor-container">
-        <SplitPane
-          className="split-pane-container"
-          split="vertical"
-          minSize={380}
-          maxSize={this.state.maxEditorWidth}
-          defaultSize={this.initEditorWidth}
-          size={this.state.editorWidth}
-          onChange={size => this.setState({ editorWidth: size })}
-          onDragFinished={size => this.onDragFinished(size)}
-          onDragStarted={this.onDragStarted}
-        >
+        {isMobile ? (
           <div className="tabs-container" id="ace-editor-container">
-            {/* <Tabs
-              onChange={this.onChange}
-              activeKey={activeKey}
-              type="editable-card"
-              onEdit={this.onEdit}
-              hideAdd={true}
-            >
-              {panes &&
-                panes.map(pane => (
-                  <TabPane
-                    tab={pane.title}
-                    key={pane.key}
-                    closable={pane.closable}
-                  ></TabPane>
-                ))}
-            </Tabs> */}
-            {editor}
+            <Tabs tabPosition="bottom">
+              <TabPane tab="代码" key="1" forceRender={true}>
+                {editor}
+              </TabPane>
+              <TabPane tab="结果" key="2" forceRender={true}>
+                <PopupScene output={[<Output key={'1'} />]}></PopupScene>
+              </TabPane>
+              <TabPane tab="日志" key="3" forceRender={true}>
+                <Console />
+              </TabPane>
+            </Tabs>
           </div>
+        ) : (
           <SplitPane
-            split="horizontal"
-            minSize={this.state.minConsoleHeight}
-            maxSize={this.state.maxConsoleHeight}
-            defaultSize={this.initConsoleHeight}
-            size={this.state.consoleHeight}
-            onChange={size => this.setState({ consoleHeight: size })}
+            className="split-pane-container"
+            split="vertical"
+            minSize={380}
+            maxSize={this.state.maxEditorWidth}
+            defaultSize={this.initEditorWidth}
+            size={this.state.editorWidth}
+            onChange={size => this.setState({ editorWidth: size })}
+            onDragFinished={size => this.onDragFinished(size)}
             onDragStarted={this.onDragStarted}
-            onDragFinished={size => this.onOutputDragFinished(size)}
           >
-            <div className="output-wrap" id="python-output-wrap">
-              <PopupScene output={[<Output key={'1'} />]}></PopupScene>
+            <div className="tabs-container" id="ace-editor-container">
+              {editor}
             </div>
-            <div style={{ height: this.state.outputHeight + 'px' }}>
-              <Console />
-            </div>
+            <SplitPane
+              split="horizontal"
+              minSize={this.state.minConsoleHeight}
+              maxSize={this.state.maxConsoleHeight}
+              defaultSize={this.initConsoleHeight}
+              size={this.state.consoleHeight}
+              onChange={size => this.setState({ consoleHeight: size })}
+              onDragStarted={this.onDragStarted}
+              onDragFinished={size => this.onOutputDragFinished(size)}
+            >
+              <div className="output-wrap" id="python-output-wrap">
+                <PopupScene output={[<Output key={'1'} />]}></PopupScene>
+              </div>
+              <div style={{ height: this.state.outputHeight + 'px' }}>
+                <Console />
+              </div>
+            </SplitPane>
           </SplitPane>
-        </SplitPane>
+        )}
       </div>
     )
   }

@@ -12,8 +12,8 @@ import 'ace-builds/src-noconflict/snippets/python'
 import 'ace-builds/src-noconflict/ext-searchbox'
 import 'ace-builds/src-noconflict/ext-emmet'
 import { filter } from 'lodash-es'
-import { updateContent } from '@/redux/tabs'
-import { finishSearch, showSearch } from '@/redux/search'
+import { updateContent } from 'redux/tabs'
+import { finishSearch, showSearch } from 'redux/search'
 import AceEventHandler from '../../lib/ace-event-handler'
 import AceMessageHandler from '../../lib/ace-message-handler'
 import IdeMessageHandler from '../../lib/ide-message-handler'
@@ -41,7 +41,7 @@ class Editor extends Component {
     this.lastRemoteHash = ''
 
     this.state = {
-      editorHeight: 'calc(100% - 0px)',
+      editorHeight: document.documentElement.clientHeight - 96 + 'px',
     }
 
     this.ydoc = new Y.Doc()

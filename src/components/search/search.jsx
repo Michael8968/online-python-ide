@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Input, Icon } from 'antd'
+import { Input } from 'antd'
+import { CloseOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import {
   hideSearch,
   setSearchText,
@@ -66,13 +67,13 @@ class Search extends Component {
           onChange={this.onChange}
         />
         <div className="search-button" onClick={this.onSearchPrevious}>
-          <Icon type="caret-up" />
+            <CaretUpOutlined />
         </div>
         <div className="search-button" onClick={this.onSearchNext}>
-          <Icon type="caret-down" />
+            <CaretDownOutlined />
         </div>
         <div className="close-button" onClick={this.onClose}>
-          <Icon type="close" />
+            <CloseOutlined />
         </div>
       </div>
     )

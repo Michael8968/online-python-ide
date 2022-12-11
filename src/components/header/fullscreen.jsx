@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Icon } from 'antd'
+// import { Icon } from 'antd'
+import {FullscreenExitOutlined, FullscreenOutlined} from '@ant-design/icons';
 
 export default class fullscreen extends Component {
   state = { fullscreen: false }
@@ -57,9 +58,9 @@ export default class fullscreen extends Component {
 
   render() {
     return this.state.fullscreen ? (
-      <Icon type="fullscreen-exit" onClick={this.exitFullscreen} />
+        <FullscreenExitOutlined onClick={this.exitFullscreen}/>
     ) : (
-      <Icon type="fullscreen" onClick={this.openFullscreen} />
+        <FullscreenOutlined onClick={this.openFullscreen} />
     )
   }
 }

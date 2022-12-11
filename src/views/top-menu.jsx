@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Header from '@/components/header/header'
+import Header from 'components/header/header'
 
 import './top-menu.scss'
 

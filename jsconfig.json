@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+        "@assets/*": ["/assets/*"],
+        "@components/*": ["/components/*"],
+        "@lib/*": ["/lib/*"],
+        "@redux/*": ["/redux/*"],
+        "@views/*": ["./views/*"]
+      }
+    },
+    "include": ["src"]
+}

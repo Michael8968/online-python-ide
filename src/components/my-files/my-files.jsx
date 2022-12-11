@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { List, Icon, message, Button, Modal } from 'antd'
+import { List, message, Button, Modal } from 'antd'
+import { CloseOutlined } from '@ant-design/icons';
 import CryptoJS from 'crypto-js'
 import { hideMyFiles } from '../../redux/myfiles'
 import { getWebideCode, deleteWebideCode } from '../../lib/api'
@@ -133,7 +134,7 @@ class MyFiles extends Component {
         <div className="title">
           我的文件
           <div className="close-button" onClick={this.onClose}>
-            <Icon type="close" />
+            <CloseOutlined />
           </div>
         </div>
         <div className="divide"></div>
@@ -150,7 +151,7 @@ class MyFiles extends Component {
                 key={item.id}
                 onClick={() => this.onRemove(item)}
               >
-                <Icon type="close" />
+                <CloseOutlined />
               </Button>
             </List.Item>
           )}

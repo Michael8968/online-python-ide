@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Tree, Icon, message } from 'antd'
+import { Tree, message } from 'antd'
+import {CloseOutlined} from '@ant-design/icons';
 import CryptoJS from 'crypto-js'
 import {
   setCurFile,
@@ -201,7 +202,7 @@ class Courseware extends Component {
         <div className="title">
           课程代码
           <div className="close-button" onClick={this.onClose}>
-            <Icon type="close" />
+          <CloseOutlined />
           </div>
         </div>
         <div className="divide"></div>

@@ -1,8 +1,9 @@
 .app-container {
   width: 100vw;
-  min-width: 1280px;
-  height: 100vh;
-  min-height: 800px;
+  // min-width: 1280px;
+  height: 100%;
+  min-height: 100%;
+  // min-height: 800px;
 }
 
 ::-webkit-scrollbar {
@@ -22,4 +23,29 @@
       background: #ee3469;
     }
   }
+}
+
+body {
+  padding-top: constant(safe-area-inset-top); /* 兼容 IOS<11.2 */
+  padding-top: env(safe-area-inset-top); /* 兼容 IOS>11.2 */
+  padding-bottom: constant(safe-area-inset-bottom); /* 兼容 IOS<11.2 */
+  padding-bottom: env(safe-area-inset-bottom); /* 兼容 IOS>11.2 */
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+
+  /** 去除左右偏移，避免微信浏览器横屏时宽度变窄 */
+
+  /* padding-left: constant(safe-area-inset-left);
+  padding-left: env(safe-area-inset-left);
+  padding-right: constant(safe-area-inset-right);
+  padding-right: env(safe-area-inset-right); */
+  height: 100%;
+  min-height: 100%;
+}
+
+#root {
+  height: 100%;
+  min-height: 100%;
 }

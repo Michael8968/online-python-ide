@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  min-width: 1024px;
+  // min-width: 1024px;
   height: 100%;
   background:
     linear-gradient(
@@ -32,7 +32,8 @@
 
   .tool-bar {
     display: flex;
-    width: 600px;
+    // width: 600px;
+    width: fit-content;
 
     button {
       color: rgba(254, 220, 220, 1);

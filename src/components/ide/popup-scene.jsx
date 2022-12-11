@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Icon, message } from 'antd'
+import { message } from 'antd'
+import { PauseOutlined, CaretRightOutlined } from '@ant-design/icons';
 import { filter } from 'lodash-es'
 import {
   hidePopupScene,
@@ -10,10 +11,10 @@ import {
   startRun,
 } from '../../redux/console'
 import IdeEventHandler from '../../lib/ide-event-handler'
-import { getTurtlePageUrl } from '@/lib/utility'
+import { getTurtlePageUrl } from 'lib/utility'
 import { getCombindedCode } from '../../lib/lesson'
 import renderMinImage from '../../assets/img/render-min.png'
-import { setTurtlePageUrl } from '@/redux/editor'
+import { setTurtlePageUrl } from 'redux/editor'
 
 import './popup-scene.scss'
 
@@ -181,12 +182,12 @@ class PopupScene extends Component {
           <div className="button-wrap">
             {isRunning ? (
               <div className="run-button" onClick={this.onSoptRun}>
-                <Icon type="pause" className="run-button-icon" />
+                <PauseOutlined className="run-button-icon" />
                 停止
               </div>
             ) : (
               <div className="run-button" onClick={this.onRunCode}>
-                <Icon type="caret-right" className="run-button-icon" />
+                <CaretRightOutlined className="run-button-icon"/>
                 运行
               </div>
             )}

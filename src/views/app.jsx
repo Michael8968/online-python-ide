@@ -6,6 +6,9 @@ import Content from './content'
 import './app.scss'
 
 class App extends React.Component {
+  componentDidMount() {
+    document.body.style.height = document.documentElement.clientHeight + 'px';
+  }
   render() {
     const { writable } = this.props
     const style = writable

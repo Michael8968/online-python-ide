@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Icon } from 'antd'
-import { clearConsole } from '@/redux/console'
+// import { Icon } from 'antd'
+import {DeleteOutlined} from '@ant-design/icons';
+import { clearConsole } from 'redux/console'
 import './ide.scss'
 
 class Console extends Component {
@@ -20,7 +21,7 @@ class Console extends Component {
       <div className="console-bar">
         <div className="header">
           <div className="title">打印输出：</div>
-          <Icon type="delete" className="btn-clear" onClick={this.onClear} />
+          <DeleteOutlined className="btn-clear" onClick={this.onClear} />
         </div>
         <pre className="console">
           {consoles.map(item => {

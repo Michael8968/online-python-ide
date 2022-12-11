@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { message, Input, Button } from 'antd'
 import { filter } from 'lodash-es'
 import CryptoJS from 'crypto-js'
-// import { addPane, setActiveKey } from '@/redux/tabs'
-import { setMyFiles } from '@/redux/myfiles'
-import { addPane, setActiveKey, updateTitle } from '@/redux/tabs'
+// import { addPane, setActiveKey } from 'redux/tabs'
+import { setMyFiles } from 'redux/myfiles'
+import { addPane, setActiveKey, updateTitle } from 'redux/tabs'
 import {
   addWebideCode,
   upload2oss,

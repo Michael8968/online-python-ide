@@ -1,6 +1,10 @@
 import queryString from 'query-string'
 import { store } from '../redux/store'
 // import { setTurtlePageUrl } from '../redux/editor'
+const UaParser = require('ua-parser-js')
+const parser = new UaParser()
+
+export const isMobile = parser.getDevice().type === 'mobile'
 
 const params = queryString.parse(window.location.search)
 // let lastTurtlePageUrl = ''
